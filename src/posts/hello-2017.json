@@ -1,0 +1,17 @@
+{
+  "title": "Hello 2017",
+  "subtitle": "Algunas de las tareas que quiero cumplir este año.",
+  "author": {
+    "name": "Yerko Palma"
+  },
+  "date": {
+    "day": 3,
+    "month": 3,
+    "year": 2017
+  },
+  "tags": [
+    "oss",
+    "2017",
+    "goals"
+  ]
+}
