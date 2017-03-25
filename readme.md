@@ -1,6 +1,6 @@
 # blog
 
-> Personal blog. Generated with [gener](https://github.com/YerkoPalma/gener)
+> Personal blog.
 
 ## License
 [MIT](/license)

@@ -3,4 +3,3 @@ node_js:
   - 'stable'
   - '5'
   - '4'
-after_success: "npm i -g codecov && npm run coverage && codecov"
