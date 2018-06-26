@@ -16,6 +16,7 @@ app.use(require('./stores/posts'))
 
 // views
 app.route('/', require('./views/main'))
+app.route('/post/:post', require('./views/post'))
 app.route('/*', require('./views/404'))
 
 // mount

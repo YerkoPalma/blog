@@ -15,6 +15,7 @@ class PostPreview extends Component {
       .then(text => {
         this.local.content = md.render(text)
         this.local.title = md.meta.title
+        this.local.slug = this.local.title.replace(/[\W_]+(.|$)/g, '-$1').toLowerCase()
         this.local.author = md.meta.author
         this.local.date = new Date(md.meta.date)
         this.local.date.print = () => {
@@ -30,7 +31,7 @@ class PostPreview extends Component {
     return html`
       <div>
         <h2 class="mt3 mb0 f2">
-          <a class="link pointer bb b--dashed bt-0 bl-0 br-0 bw2 bg-animate hover-bg-light-red b--light-red black">${this.local.title || 'Loading...'}</a>
+          <a href="post/${this.local.slug}" class="link pointer bb b--dashed bt-0 bl-0 br-0 bw2 bg-animate hover-bg-light-red b--light-red black">${this.local.title || 'Loading...'}</a>
         </h2>
         <time datetime="${this.local.date}" class="f6 db gray">${this.local.date && this.local.date.print()}</time>
       </div>
