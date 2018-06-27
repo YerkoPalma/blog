@@ -10,12 +10,12 @@ class PostPreview extends Component {
     super(id)
     this.local = state.components[id] = {}
 
-    fetch(`../content/${id}`)
+    fetch(`../content/${id}.md`)
       .then(response => response.text())
       .then(text => {
         this.local.content = md.render(text)
         this.local.title = md.meta.title
-        this.local.slug = this.local.title.replace(/[\W_]+(.|$)/g, '-$1').toLowerCase()
+        this.local.slug = id.replace(/[\W_]+(.|$)/g, '-$1').toLowerCase()
         this.local.author = md.meta.author
         this.local.date = new Date(md.meta.date)
         this.local.date.print = () => {
