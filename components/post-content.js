@@ -12,7 +12,14 @@ class PostContent extends Component {
   createElement () {
     return html`
       <div>
-        ${raw(this.local.content.replace(/<pre/g, '<pre class=\"near-white bg-mid-gray overflow-x-visible-ns overflow-x-scroll pa3\"'))}
+        ${raw(this.local.content
+          .replace(/<pre/g, '<pre class=\"near-white bg-mid-gray overflow-x-visible-ns overflow-x-scroll pa3\"')
+          .replace(/<a /g, '<a class=\"link pointer bb b--dashed bt-0 bl-0 br-0 bw2 bg-animate hover-bg-light-red b--light-red black\" ')
+          .replace(/<p>/g, '<p class=\"f4 f3-ns lh-copy measure-wide georgia\">')
+          .replace(/<blockquote>/g, '<blockquote class=\"i pl4 bl bw1 b--light-red mb4\">')
+          .replace(/<h(\d)>/g, '<h$1 class=\"f$1 georgia\">')
+          .replace(/<li>/g, '<li class=\"f4 f3-ns lh-copy georgia\">')
+          )}
       </div>
     `
   }
