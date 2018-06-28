@@ -12,7 +12,7 @@ class PostContent extends Component {
   createElement () {
     return html`
       <div>
-        ${raw(this.local.content)}
+        ${raw(this.local.content.replace(/<pre/g, '<pre class=\"near-white bg-mid-gray overflow-x-visible-ns overflow-x-scroll pa3\"'))}
       </div>
     `
   }
