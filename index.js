@@ -13,6 +13,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 // stores
 app.use(require('./stores/posts'))
+app.use(require('./stores/animations'))
 
 // views
 app.route('/', require('./views/main'))
