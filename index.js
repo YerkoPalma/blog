@@ -14,6 +14,7 @@ if (process.env.NODE_ENV !== 'production') {
 // stores
 app.use(require('./stores/posts'))
 app.use(require('./stores/animations'))
+app.use(require('./stores/offline'))
 
 // views
 app.route('/', require('./views/main'))
