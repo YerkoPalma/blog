@@ -2,7 +2,7 @@
   "name": "blog",
   "description": "personal blog",
   "author": "YerkoPalma",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "main": "index.js",
   "env": {
     "FILE_LIST": [
