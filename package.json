@@ -4,6 +4,13 @@
   "author": "YerkoPalma",
   "version": "0.1.0",
   "main": "index.js",
+  "env": {
+    "FILE_LIST": [
+      "/",
+      "/bundle.js",
+      "/bundle.css"
+    ]
+  },
   "private": true,
   "files": [
     "index.js"

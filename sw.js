@@ -1,7 +1,7 @@
 /* eslint-env serviceworker */
 
 var VERSION = require('./package.json').version
-var URLS = process.env.FILE_LIST
+var URLS = require('./package.json').env.FILE_LIST
 
 // Respond with cached resources
 self.addEventListener('fetch', function (e) {
