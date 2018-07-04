@@ -2,8 +2,8 @@
   "name": "blog",
   "short_name": "blog",
   "description": "personal blog",
-  "theme_color": "#f26328",
-  "background_color": "#41838e",
+  "theme_color": "#111111",
+  "background_color": "#ed5565",
   "display": "standalone",
   "start_url": "/",
   "icons": [
