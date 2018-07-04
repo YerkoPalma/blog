@@ -24,7 +24,7 @@
     "build:static": "mkdir -p dist && cp index.html manifest.json dist && cp -R assets/* dist && cp -R content dist",
     "build:js": "browserify -p tinyify -t brfs -t sheetify -p [ css-extract -o dist/bundle.css ] -e index.js -o dist/bundle.js",
     "build:sw": "browserify -p tinyify -e sw.js -o dist/sw.js",
-    "deploy": "npm run build && touch dist/.nojekyll && echo \"blog.yerkopalma.me\" > dist/CNAME && gh-pages -d dist"
+    "deploy": "npm run build && touch dist/.nojekyll && echo \"blog.yerkopalma.me\" > dist/CNAME && gh-pages -d dist -a -t"
   },
   "repository": "YerkoPalma/blog",
   "license": "MIT",
