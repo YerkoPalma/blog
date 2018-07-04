@@ -21,7 +21,7 @@
     "deps": "dependency-check .",
     "start": "budo index.js:bundle.js -H 0.0.0.0 -p 8080 -- -t brfs -t sheetify -p [ css-extract -o bundle.css ]",
     "build": "npm run build:static && npm run build:sw && npm run build:js",
-    "build:static": "mkdir -p dist && cp index.html manifest.json dist && cp -R assets/* dist && cp -R content dist",
+    "build:static": "mkdir -p dist && cp favicon.ico index.html manifest.json dist && cp -R assets/* dist && cp -R content dist",
     "build:js": "browserify -p tinyify -t brfs -t sheetify -p [ css-extract -o dist/bundle.css ] -e index.js -o dist/bundle.js",
     "build:sw": "browserify -p tinyify -e sw.js -o dist/sw.js",
     "deploy": "npm run build && touch dist/.nojekyll && echo \"blog.yerkopalma.me\" > dist/CNAME && gh-pages -d dist -a -t"
