@@ -5,7 +5,7 @@ store.storeName = 'offline'
 function store (state, emitter) {
   emitter.on('DOMContentLoaded', function () {
     if (navigator.serviceWorker) {
-      navigator.serviceWorker.ready()
+      navigator.serviceWorker.ready
         .then(registration => {
           var localVersion = localStorage.getItem('version')
           var currentVersion = require('../package.json').version
