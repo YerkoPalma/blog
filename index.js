@@ -1,25 +1,5 @@
-var choo = require('choo')
-var css = require('sheetify')
+/* global customElements */
+import CustomLoader from './components/loader.js'
 
-css('tachyons')
-
-var app = choo()
-
-if (process.env.NODE_ENV !== 'production') {
-  app.use(require('choo-devtools')())
-} else {
-  app.use(require('choo-service-worker')())
-}
-
-// stores
-app.use(require('./stores/posts'))
-app.use(require('./stores/animations'))
-app.use(require('./stores/offline'))
-
-// views
-app.route('/', require('./views/main'))
-app.route('/post/:post', require('./views/post'))
-app.route('/*', require('./views/404'))
-
-// mount
-app.mount('body')
+// register components
+customElements.define('custom-loader', CustomLoader)
