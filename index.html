@@ -18,15 +18,21 @@
     <!-- Add Tile Icon for Windows -->
     <meta name="msapplication-TileImage" content="/icons/icon-144.png">
     <meta name="msapplication-TileColor" content="#111111">
-    <style type="text/css">
-      html, body {
-        margin: 0;
-        padding: 0;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" type="text/css" />
   </head>
   <body>
-    <custom-loader></custom-loader>
+    <!--<custom-loader></custom-loader>-->
+    <main>
+      <posts-feed order-by="date" only-author="ypalma" only-tags="web,js">
+        <post-feed-item date="" author="" tags="" slug="post-title">
+          <h2 slot="title">Awesome feed</h2>
+          <span slot="abstract">Awesome feed</span>
+        </post-feed-item>
+        <post-feed-item date="" author="" tags="" slug="post-title">
+        </post-feed-item>
+      </posts-feed>
+    </main>
+    
     <script type="module" src="./index.js"></script>
   </body>
 </html>
