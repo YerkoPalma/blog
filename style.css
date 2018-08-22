@@ -34,6 +34,11 @@ main {
   color: #111;
   width: 100%;
   height: 100%;
+  overflow-y: scroll;
+}
+post-feed-item {
+  margin-bottom: 2rem;
+  display: block;
 }
 @media screen and (min-width: 30em) {
   main {
