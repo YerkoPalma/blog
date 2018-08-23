@@ -23,6 +23,12 @@ export default class PostFeedItem extends HTMLElement {
   set author (value) {
     this.setAttribute('author', value)
   }
+  get slug () {
+    return this.getAttribute('slug')
+  }
+  set slug (value) {
+    this.setAttribute('slug', value)
+  }
   get tags () {
     return this.getAttribute('tags').split(',')
   }
