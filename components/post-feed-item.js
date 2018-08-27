@@ -1,6 +1,6 @@
 /* global HTMLElement */
 export default class PostFeedItem extends HTMLElement {
-  static get observedAttributes () { return ['hide'] }
+  static get observedAttributes () { return ['slug', 'hide', 'date'] }
   get date () {
     return new Date(this.getAttribute('date'))
   }
@@ -89,6 +89,13 @@ export default class PostFeedItem extends HTMLElement {
     return `${this.date.getDate()} de ${month[this.date.getMonth()]}, ${this.date.getFullYear()}`
   }
   attributeChangedCallback (name, oldValue, newValue) {
+    if (name === 'date') {
+      this.shadowRoot.querySelector('time').datetime = this.date
+      this.shadowRoot.querySelector('time').textContent = this.printDate()
+    }
+    if (name === 'slug') {
+      this.shadowRoot.querySelector('a').href = `post.html?p=${this.slug}`
+    }
     if (name === 'hide') {
       const style = this.shadowRoot.querySelector('style')
       style.textContent = `

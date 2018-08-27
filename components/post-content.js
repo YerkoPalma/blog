@@ -26,5 +26,6 @@ export default class Loader extends HTMLElement {
     const response = await fetch(this.src)
     const md = await response.text()
     this.shadowRoot.querySelector('div').innerHTML = snarkdown(md)
+    document.querySelector('custom-loader').remove()
   }
 }

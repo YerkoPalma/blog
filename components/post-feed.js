@@ -1,6 +1,9 @@
-/* global HTMLElement */
+/* global HTMLElement fetch */
 export default class PostFeed extends HTMLElement {
   static get observedAttributes () { return ['order-by', 'only-author', 'only-tags'] }
+  get src () {
+    return this.getAttribute('src')
+  }
   get orderBy () {
     return this.getAttribute('order-by')
   }
@@ -22,16 +25,36 @@ export default class PostFeed extends HTMLElement {
 
   constructor () {
     super()
-    this.updatePosts()
+    // this.updatePosts(this.posts)
   }
 
-  attributeChangedCallback (name, oldValue, newValue) {
-    this.updatePosts()
+  async attributeChangedCallback (name, oldValue, newValue) {
+    await this.updatePosts(this.posts)
   }
 
-  updatePosts () {
+  async loadPosts () {
+    if (this.src) {
+      const response = await fetch(this.src)
+      const posts = await response.json()
+      return posts.map(post => {
+        const postElement = document.createElement('post-feed-item')
+        if (post.date) postElement.date = post.date
+        if (post.author) postElement.author = post.author
+        if (post.tags) postElement.tags = post.tags
+        if (post.slug) postElement.slug = post.slug
+        postElement.innerHTML = `
+          ${post.title ? `<h2 slot="title">${post.title}</h2>` : ''}
+          ${post.abstract ? `<span slot="abstract">${post.abstract}</span>`: ''}
+        `
+        return postElement
+      })
+    }
+    return Array.from(this.children)
+  }
+
+  async updatePosts (posts) {
     // get the current posts
-    let posts = Array.from(this.children)
+    if (!posts) posts = await this.loadPosts()
     // remove them
     this.innerHTML = ''
     // sort them
@@ -72,5 +95,8 @@ export default class PostFeed extends HTMLElement {
     posts.forEach(post => {
       this.appendChild(post)
     })
+    this.posts = posts
+    var loader
+    if (loader = document.querySelector('custom-loader')) loader.remove()
   }
 }

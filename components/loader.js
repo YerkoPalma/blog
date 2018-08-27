@@ -25,6 +25,9 @@ export default class Loader extends HTMLElement {
        background: ${this.bgColor || '#ed5565'};
        color: ${this.color || '#fff'};
        display: table;
+       position: absolute;
+       top: 0;
+       left: 0;
      }
      .loader {
        display: table-cell;
