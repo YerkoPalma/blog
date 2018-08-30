@@ -25,7 +25,6 @@ export default class PostFeed extends HTMLElement {
 
   constructor () {
     super()
-    // this.updatePosts(this.posts)
   }
 
   async attributeChangedCallback (name, oldValue, newValue) {
