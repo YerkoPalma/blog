@@ -7,3 +7,7 @@ import PostFeedItem from './components/post-feed-item.js'
 customElements.define('custom-loader', CustomLoader)
 customElements.define('post-feed-item', PostFeedItem)
 customElements.define('posts-feed', PostFeed)
+
+// Register service worker
+navigator.serviceWorker
+  .register('/service-worker.js', { updateViaCache: 'none' })

@@ -51,6 +51,28 @@ export default class Loader extends HTMLElement {
       :host main > h1 {
         font-size: 3rem;
       }
+      :host main > a {
+        text-decoration: none;
+        transition: all .15s ease-in;
+        border-width: 0 0 .25rem 0;
+        display: inline-block;
+        border-color: #ff725c;
+        margin-top: 0;
+        border-style: dashed;
+        color: #111;
+      }
+      :host main > a:hover {
+        cursor: pointer;
+        background-color: #ff725c;
+      }
+      :host main > blockquote {
+        padding-left: 2rem;
+        font-style: italic;
+        border-width: .125rem;
+        border-color: #ff725c;
+        border-left-style: solid;
+        margin-bottom: 0;
+      }
     `
     div.innerHTML = `
     <a href="/"> 
