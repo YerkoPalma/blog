@@ -12,7 +12,10 @@ const CURRENT_CACHES = {
 const URLS = [
   '/',
   '/index.html',
-  '/post.html'
+  '/post.html',
+  '/style.css',
+  '/index.js',
+  '/post.js'
 ]
 const NOT_FOUND_URL = '/404.html'
 
@@ -75,9 +78,17 @@ self.addEventListener('fetch', event => {
   if (event.request.mode === 'navigate') {
     // Only handle navigation requests (top-level HTML pages)
     event.respondWith((async () => {
-      const request = await caches.match(event.request)
+      const cache = await caches.open(CURRENT_CACHES.offline)
+      const request = await cache.match(event.request)
       if (request) return request
-      else return fetch(event.request).catch(error => {
+      else return fetch(event.request)
+          .then(response => {
+            // if we have to fetch this request, also add it to the cache
+            // but only for known files (markdown and components)
+            if (/[components|.md$]/.test(event.request.url)) cache.put(event.request, response.clone())
+            return response
+          })
+          .catch(error => {
           // The catch is only triggered if fetch() throws an exception, which will
           // most likely happen due to the server being unreachable. If fetch() returns
           // a valid HTTP response with an response code in the 4xx or 5xx range, the
