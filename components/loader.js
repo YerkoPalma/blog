@@ -26,6 +26,7 @@ export default class Loader extends HTMLElement {
        color: ${this.color || '#fff'};
        display: table;
        position: absolute;
+       z-index: 10000;
        top: 0;
        left: 0;
      }

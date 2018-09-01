@@ -1,6 +1,6 @@
 /* global HTMLElement */
 export default class PostFeedItem extends HTMLElement {
-  static get observedAttributes () { return ['slug', 'hide', 'date'] }
+  static get observedAttributes () { return ['slug', 'hide', 'date', 'tags'] }
   get date () {
     return new Date(this.getAttribute('date'))
   }
@@ -30,7 +30,7 @@ export default class PostFeedItem extends HTMLElement {
     this.setAttribute('slug', value)
   }
   get tags () {
-    return this.getAttribute('tags').split(',')
+    return this.getAttribute('tags') ? this.getAttribute('tags').split(',') : []
   }
   set tags (value) {
     if (Array.isArray(value)) this.setAttribute('tags', value.join())
@@ -51,16 +51,16 @@ export default class PostFeedItem extends HTMLElement {
         border-color: #ff725c;
         margin-top: 1rem;
         border-style: dashed;
+        color: #333;
       }
       :host a:hover {
-        background-color: #ff725c;
+        color: #ff725c;
       }
       :host h2,
       ::slotted(h2) {
         margin-top: 2rem;
         margin-bottom: 0;
         margin-top: 0;
-        color: #333;
         font-size: 2.25rem;
       }
       ${this.hide ? '::slotted(*) { display: none; }' : ''}
@@ -70,6 +70,27 @@ export default class PostFeedItem extends HTMLElement {
         display: block;
         margin-bottom: 1rem;
       }
+      :host .tags {
+        padding: 0;
+        margin-bottom: .5rem;
+      }
+      :host .tags li {
+        display: inline-block;
+      }
+      :host .tags li > a {
+        margin: 0;
+        color: #333;
+        border: none;
+        padding: .125rem .7rem;
+        background-color: #ccc;
+        border-radius: .1rem;
+        font-size: .91rem;
+        opacity: .5;
+        margin-bottom: .5rem;
+      }
+      :host .tags li > a:hover {
+        opacity: 1;
+      }
     `
     template.innerHTML = `
       <div>
@@ -78,6 +99,7 @@ export default class PostFeedItem extends HTMLElement {
         </a>
       </div>
       <time datetime="${this.date}">${this.printDate()}</time>
+      <ul class="tags">${this.tags.reduce((prev, tag) => `${prev} <li><a href="index.html?tags=${tag}">${tag}</a></li>`, '')}</ul>
       <slot name="abstract"></slot>
     `
     shadow.appendChild(style)
@@ -89,6 +111,9 @@ export default class PostFeedItem extends HTMLElement {
     return `${this.date.getDate()} de ${month[this.date.getMonth()]}, ${this.date.getFullYear()}`
   }
   attributeChangedCallback (name, oldValue, newValue) {
+    if (name === 'tags') {
+      this.shadowRoot.querySelector('.tags').innerHTML = this.tags.reduce((prev, tag) => `${prev} <li><a href="index.html?tags=${tag}">${tag}</a></li>`, '')
+    }
     if (name === 'date') {
       this.shadowRoot.querySelector('time').datetime = this.date
       this.shadowRoot.querySelector('time').textContent = this.printDate()

@@ -27,6 +27,7 @@ export default class Loader extends HTMLElement {
         display: table;
         vertical-align: middle;
         position: absolute;
+        display: none;
       }
       :host div > a {
         vertical-align: middle;
@@ -35,21 +36,34 @@ export default class Loader extends HTMLElement {
       :host main {
         margin-right: auto;
         margin-left: auto;
-        padding-left: 16rem;
-        padding-right: 16rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
         padding-top: 1rem;
         padding-bottom: 1rem;
         background-color: #fff;
         color: #111;
         height: 94%;
         overflow-y: scroll;
-        font-size: 1.5rem;
-        max-width: 34em;
+        font-size: 16px;
         line-height: 1.5;
+        word-wrap: break-word;
+        word-break: break-all;
       }
-      
+      @media screen and (min-width: 30em) {
+        :host main {
+          padding-left: 16rem;
+          padding-right: 16rem;
+          font-size: 20px;
+        }
+        :host div {
+          display: table;
+        }
+        :host main > h1 {
+          font-size: 3rem;
+        }
+      }
       :host main > h1 {
-        font-size: 3rem;
+        font-size: 2.75rem;
       }
       :host main > a {
         text-decoration: none;
@@ -63,7 +77,7 @@ export default class Loader extends HTMLElement {
       }
       :host main > a:hover {
         cursor: pointer;
-        background-color: #ff725c;
+        color: #ff725c;
       }
       :host main > blockquote {
         padding-left: 2rem;
@@ -72,6 +86,20 @@ export default class Loader extends HTMLElement {
         border-color: #ff725c;
         border-left-style: solid;
         margin-bottom: 0;
+      }
+      :host main .code {
+        background-color: #333;
+        color: #ddd;
+        padding: .5rem 1rem;
+        font-size: 1rem;
+        overflow-x: scroll;
+      }
+      :host img {
+        max-width: 100%;
+      }
+      :host li {
+        word-wrap: break-word;
+        word-break: break-all;
       }
     `
     div.innerHTML = `
