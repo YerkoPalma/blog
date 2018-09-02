@@ -1,11 +1,3 @@
----
-title: "The benefits of javascript fatigue"
-author: Yerko Palma
-date: 07-28-2017
-tags:
-    - javascript
-    - open-source
----
 # The benefits of javascript fatigue
 
 The javascript ecosystem is way too big, that’s not new. People even put a name 

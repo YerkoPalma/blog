@@ -1,12 +1,3 @@
----
-title: "Hello 2017"
-author: Yerko Palma
-date: 04-10-2017
-tags:
-    - planning
-    - open-source
-    - personal
----
 # Hello 2017
 
 Mis objetivos los quería dividir en categorías, pero luego de anotarlos, caí en 

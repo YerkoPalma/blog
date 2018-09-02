@@ -1,13 +1,3 @@
----
-title: "Houdini: PaintWorklet"
-author: Yerko Palma
-date: 06-10-2018
-tags:
-    - houdini
-    - worklet
-    - web
-    - css
----
 # Houdini: PaintWorklet
 
 En el 2016 los desarrolladores de Google anunciaban una serie de APIs que 
