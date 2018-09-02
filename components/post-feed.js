@@ -67,8 +67,8 @@ export default class PostFeed extends HTMLElement {
     }
     // filter them
     if (this.onlyAuthor || this.onlyTags) {
-      const authors = this.onlyAuthor.split(',')
-      const tags = this.onlyTags.split(',')
+      const authors = this.onlyAuthor ? this.onlyAuthor.split(',') : []
+      const tags = this.onlyTags ? this.onlyTags.split(',') : []
       if (this.onlyAuthor) {
         posts = posts.map(post => {
           if (authors.indexOf(post.author) < 0) {

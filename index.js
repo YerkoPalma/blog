@@ -11,3 +11,11 @@ customElements.define('posts-feed', PostFeed)
 // Register service worker
 navigator.serviceWorker
   .register('/service-worker.js', { updateViaCache: 'none' })
+
+// tags updates
+window.addTag = function (tag) {
+  const feed = document.querySelector('posts-feed')
+  let tags = new Set(feed.onlyTags ? feed.onlyTags.split(',') : [])
+  tags.add(tag)
+  feed.onlyTags = [...tags].join()
+}

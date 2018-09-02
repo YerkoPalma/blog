@@ -90,6 +90,7 @@ export default class PostFeedItem extends HTMLElement {
       }
       :host .tags li > a:hover {
         opacity: 1;
+        cursor: pointer;
       }
     `
     template.innerHTML = `
@@ -99,7 +100,7 @@ export default class PostFeedItem extends HTMLElement {
         </a>
       </div>
       <time datetime="${this.date}">${this.printDate()}</time>
-      <ul class="tags">${this.tags.reduce((prev, tag) => `${prev} <li><a href="index.html?tags=${tag}">${tag}</a></li>`, '')}</ul>
+      <ul class="tags">${this.tags.reduce((prev, tag) => `${prev} <li><a onclick="window.addTag('${tag}')">${tag}</a></li>`, '')}</ul>
       <slot name="abstract"></slot>
     `
     shadow.appendChild(style)
@@ -112,7 +113,7 @@ export default class PostFeedItem extends HTMLElement {
   }
   attributeChangedCallback (name, oldValue, newValue) {
     if (name === 'tags') {
-      this.shadowRoot.querySelector('.tags').innerHTML = this.tags.reduce((prev, tag) => `${prev} <li><a href="index.html?tags=${tag}">${tag}</a></li>`, '')
+      this.shadowRoot.querySelector('.tags').innerHTML = this.tags.reduce((prev, tag) => `${prev} <li><a onclick="window.addTag('${tag}')">${tag}</a></li>`, '')
     }
     if (name === 'date') {
       this.shadowRoot.querySelector('time').datetime = this.date
@@ -152,6 +153,28 @@ export default class PostFeedItem extends HTMLElement {
           display: block;
           margin-bottom: 1rem;
         }
+        :host .tags {
+        padding: 0;
+        margin-bottom: .5rem;
+      }
+      :host .tags li {
+        display: inline-block;
+      }
+      :host .tags li > a {
+        margin: 0;
+        color: #333;
+        border: none;
+        padding: .125rem .7rem;
+        background-color: #ccc;
+        border-radius: .1rem;
+        font-size: .91rem;
+        opacity: .5;
+        margin-bottom: .5rem;
+      }
+      :host .tags li > a:hover {
+        opacity: 1;
+        cursor: pointer;
+      }
       `
     }
   }
