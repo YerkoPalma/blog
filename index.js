@@ -1,25 +1,21 @@
-var choo = require('choo')
-var css = require('sheetify')
+/* global customElements */
+import CustomLoader from './components/loader.js'
+import PostFeed from './components/post-feed.js'
+import PostFeedItem from './components/post-feed-item.js'
 
-css('tachyons')
+// register components
+customElements.define('custom-loader', CustomLoader)
+customElements.define('post-feed-item', PostFeedItem)
+customElements.define('posts-feed', PostFeed)
 
-var app = choo()
+// Register service worker
+navigator.serviceWorker
+  .register('/service-worker.js', { updateViaCache: 'none' })
 
-if (process.env.NODE_ENV !== 'production') {
-  app.use(require('choo-devtools')())
-} else {
-  app.use(require('choo-service-worker')())
+// tags updates
+window.addTag = function (tag) {
+  const feed = document.querySelector('posts-feed')
+  let tags = new Set(feed.onlyTags ? feed.onlyTags.split(',') : [])
+  tags.add(tag)
+  feed.onlyTags = [...tags].join()
 }
-
-// stores
-app.use(require('./stores/posts'))
-app.use(require('./stores/animations'))
-app.use(require('./stores/offline'))
-
-// views
-app.route('/', require('./views/main'))
-app.route('/post/:post', require('./views/post'))
-app.route('/*', require('./views/404'))
-
-// mount
-app.mount('body')

@@ -1,0 +1,26 @@
+[
+  {
+    "title": "The benefits of javascript fatigue",
+    "abstract": "The javascript ecosystem is way too big, that’s not new. People even put a name for that, the javascript fatigue.",
+    "date": "07-28-2017",
+    "author": "Yerko Palma",
+    "tags": ["javascript", "open-source"],
+    "slug": "benefits-of-javascript-fatigue"
+  },
+  {
+    "title": "Hello 2017",
+    "abstract": "Mis objetivos los quería dividir en categorías, pero luego de anotarlos, caí en la cuenta de que siempre mis objetivos están mezclando distintos intereses, mis intereses.",
+    "date": "04-10-2017",
+    "author": "Yerko Palma",
+    "tags": ["planning", "open-source", "personal"],
+    "slug": "hello-2017"
+  },
+  {
+    "title": "Houdini: PaintWorklet",
+    "abstract": "En el 2016 los desarrolladores de Google anunciaban una serie de APIs que buscaban tomar control de las tareas que hace el CSS por nosotros en nuestras páginas.",
+    "date": "06-10-2018",
+    "author": "Yerko Palma",
+    "tags": ["houdini", "worklet", "javascript", "web", "css"],
+    "slug": "houdini"
+  }
+]

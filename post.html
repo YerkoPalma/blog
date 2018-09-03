@@ -21,12 +21,8 @@
     <link rel="preload" as="style" href="/style.css" onload="this.rel='stylesheet'"/>
   </head>
   <body>
-    <noscript>Please enable JavaScript.</noscript>
     <custom-loader></custom-loader>
-    <main>
-      <posts-feed src="content/feed.json" order-by="date">
-      </posts-feed>
-    </main>
-    <script type="module" async src="./index.js"></script>
+    <post-content src="content/{{p}}.md" comments="on"></post-content>
+    <script type="module" async src="./post.js"></script>
   </body>
 </html>
