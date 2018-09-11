@@ -1,5 +1,5 @@
 /* global HTMLElement fetch */
-import markdown from 'https://unpkg.com/snarkdown?module'
+import markdown from 'https://unpkg.com/md?module'
 
 export default class Loader extends HTMLElement {
   get src () {
@@ -65,7 +65,7 @@ export default class Loader extends HTMLElement {
       :host main > h1 {
         font-size: 2.75rem;
       }
-      :host main > a {
+      :host main a {
         text-decoration: none;
         transition: all .15s ease-in;
         border-width: 0 0 .25rem 0;
@@ -75,7 +75,7 @@ export default class Loader extends HTMLElement {
         border-style: dashed;
         color: #111;
       }
-      :host main > a:hover {
+      :host main a:hover {
         cursor: pointer;
         color: #ff725c;
       }
@@ -87,7 +87,7 @@ export default class Loader extends HTMLElement {
         border-left-style: solid;
         margin-bottom: 0;
       }
-      :host main .code {
+      :host main pre {
         background-color: #333;
         color: #ddd;
         padding: .5rem 1rem;
