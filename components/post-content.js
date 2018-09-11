@@ -23,15 +23,23 @@ export default class Loader extends HTMLElement {
     const style = document.createElement('style')
     style.textContent = `
       :host div {
-        height: 90%;
-        display: table;
+        width: 90%;
         vertical-align: middle;
         position: absolute;
-        display: none;
       }
       :host div > a {
         vertical-align: middle;
         display: table-cell;
+      }
+      :host div > a > .small{
+        margin-top: .75rem;
+      }
+      :host div > a > .small {
+        margin-top: .75rem;
+        display: block;
+      }
+      :host div > a > .big {
+        display: none;
       }
       :host main {
         margin-right: auto;
@@ -46,8 +54,6 @@ export default class Loader extends HTMLElement {
         overflow-y: scroll;
         font-size: 16px;
         line-height: 1.5;
-        word-wrap: break-word;
-        word-break: break-all;
       }
       @media screen and (min-width: 30em) {
         :host main {
@@ -56,7 +62,14 @@ export default class Loader extends HTMLElement {
           font-size: 20px;
         }
         :host div {
+          height: 90%;
           display: table;
+        }
+        :host div > a > .small {
+          display: none;
+        }
+        :host div > a > .big {
+          display: block;
         }
         :host main > h1 {
           font-size: 3rem;
@@ -104,7 +117,8 @@ export default class Loader extends HTMLElement {
     `
     div.innerHTML = `
     <a href="/"> 
-      <svg version="1.1" preserveAspectRatio="xMidYMid meet" viewBox="0 0 127 324" width="127" height="122"><defs><path d="M121.3 320L6.7 161L121.3 2" id="b3EIhQ1lWg"></path></defs><g><g><use xlink:href="#b3EIhQ1lWg" opacity="1" fill="#000000" fill-opacity="0"></use><g><use xlink:href="#b3EIhQ1lWg" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="10" stroke-opacity="1"></use></g></g></g></svg>
+      <svg class="small" version="1.1" preserveAspectRatio="xMidYMid meet" viewBox="0 0 127 324" width="45" height="40"><defs><path d="M121.3 320L6.7 161L121.3 2" id="b3EIhQ1lWg"></path></defs><g><g><use xlink:href="#b3EIhQ1lWg" opacity="1" fill="#000000" fill-opacity="0"></use><g><use xlink:href="#b3EIhQ1lWg" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="10" stroke-opacity="1"></use></g></g></g></svg>
+      <svg class="big" version="1.1" preserveAspectRatio="xMidYMid meet" viewBox="0 0 127 324" width="127" height="122"><defs><path d="M121.3 320L6.7 161L121.3 2" id="b3EIhQ1lWg"></path></defs><g><g><use xlink:href="#b3EIhQ1lWg" opacity="1" fill="#000000" fill-opacity="0"></use><g><use xlink:href="#b3EIhQ1lWg" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="10" stroke-opacity="1"></use></g></g></g></svg>
     </a>
     `
 
