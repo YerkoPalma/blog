@@ -63,6 +63,7 @@ export default class Loader extends HTMLElement {
         }
         :host div {
           height: 90%;
+          width: auto;
           display: table;
         }
         :host div > a > .small {
