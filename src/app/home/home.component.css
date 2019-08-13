@@ -1,0 +1,80 @@
+main {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: #fff;
+  color: #111;
+  max-width: calc(100% - 2rem);
+  height: calc(100% - 6rem);
+  overflow-y: auto;
+}
+
+main > div {
+  margin-bottom: 2rem;
+}
+
+a {
+  text-decoration: none;
+  transition: all .15s ease-in;
+  border-width: 0 0 .25rem 0;
+  display: inline-block;
+  border-color: #ff725c;
+  margin-top: 1rem;
+  border-style: dashed;
+  color: #333;
+}
+
+a:hover {
+  color: #ff725c;
+  cursor: pointer;
+}
+
+h2 {
+  margin-bottom: 0;
+  margin-top: 0;
+  font-size: 2.25rem;
+}
+
+time {
+  font-size: .875rem;
+  color: #777;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+ul.tags {
+  padding: 0;
+  margin-bottom: .5rem;
+}
+
+.tags li {
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+.tags li > a {
+  margin: 0;
+  color: #333;
+  border: none;
+  padding: .125rem .7rem;
+  background-color: #ccc;
+  border-radius: .1rem;
+  font-size: .91rem;
+  opacity: .5;
+  margin-bottom: .5rem;
+}
+
+.tags li a:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 30em) {
+  main {
+    padding-left: 16rem;
+    padding-right: 16rem;
+  }
+}
