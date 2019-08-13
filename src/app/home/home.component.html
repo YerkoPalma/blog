@@ -1,7 +1,6 @@
 <main>
   <div *ngFor="let post of posts | async">
-    <!-- <pre>{{post | json}}</pre> -->
-    <a><h2>{{ post.title }}</h2></a>
+    <a routerLink="/post/{{post.slug}}"><h2>{{ post.title }}</h2></a>
     <time>{{ post.date.seconds * 1000 | date:'dd \'d\'e MMMM, yyyy' }}</time>
     <ul class="tags">
       <li *ngFor="let tag of post.tags">

@@ -10,13 +10,15 @@ import { HomeComponent } from './home/home.component';
 import { environment } from 'src/environments/environment';
 import { registerLocaleData } from '@angular/common';
 import localeCl from '@angular/common/locales/es-CL';
+import { PostComponent } from './post/post.component';
 
 registerLocaleData(localeCl);
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
