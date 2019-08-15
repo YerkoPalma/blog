@@ -3,6 +3,7 @@ import { NgModule, LOCALE_ID } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { MarkdownModule } from 'ngx-markdown';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +12,7 @@ import { environment } from 'src/environments/environment';
 import { registerLocaleData } from '@angular/common';
 import localeCl from '@angular/common/locales/es-CL';
 import { PostComponent } from './post/post.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 registerLocaleData(localeCl);
 
@@ -22,9 +24,11 @@ registerLocaleData(localeCl);
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireStorageModule,
     AngularFirestoreModule,
+    MarkdownModule.forRoot({ loader: HttpClient }),
     AppRoutingModule
   ],
   providers: [
