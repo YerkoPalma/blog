@@ -22,6 +22,7 @@
     "@angular/pwa": "^0.802.2",
     "@angular/router": "~8.0.0",
     "@angular/service-worker": "~8.0.0",
+    "angular-cli-ghpages": "^0.6.0-rc.2",
     "firebase": "^6.3.5",
     "ngx-markdown": "^8.1.0",
     "rxjs": "~6.4.0",
