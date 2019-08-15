@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
-import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireStorageModule, StorageBucket } from '@angular/fire/storage';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { MarkdownModule } from 'ngx-markdown';
 
@@ -32,6 +32,7 @@ registerLocaleData(localeCl);
     AppRoutingModule
   ],
   providers: [
+    { provide: StorageBucket, useValue: 'blog-yp.appspot.com'},
     { provide: LOCALE_ID, useValue: 'es-CL' }
   ],
   bootstrap: [AppComponent]
