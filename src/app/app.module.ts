@@ -13,6 +13,7 @@ import { registerLocaleData } from '@angular/common';
 import localeCl from '@angular/common/locales/es-CL';
 import { PostComponent } from './post/post.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 registerLocaleData(localeCl);
 
@@ -29,7 +30,8 @@ registerLocaleData(localeCl);
     AngularFireStorageModule,
     AngularFirestoreModule,
     MarkdownModule.forRoot({ loader: HttpClient }),
-    AppRoutingModule
+    AppRoutingModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     { provide: StorageBucket, useValue: 'blog-yp.appspot.com'},
