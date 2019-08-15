@@ -1,12 +1,22 @@
 <main>
-  <div *ngFor="let post of posts | async">
-    <a routerLink="/post/{{post.slug}}"><h2>{{ post.title }}</h2></a>
-    <time>{{ post.date.seconds * 1000 | date:'dd \'d\'e MMMM, yyyy' }}</time>
+  <div *ngIf="tags.length > 0">
+    <span>Showing tags (click to remove filter): </span>
     <ul class="tags">
-      <li *ngFor="let tag of post.tags">
-        <a>{{tag}}</a>
+      <li *ngFor="let tag of tags">
+        <a (click)="removeTagFiler(tag)">{{ tag }}</a>
       </li>
     </ul>
-    <span>{{ post.abstract }}</span>
+  </div>
+  <div *ngFor="let post of posts | async">
+    <ng-container *ngIf="shouldShow(post)">
+      <a routerLink="/post/{{post.slug}}"><h2>{{ post.title }}</h2></a>
+      <time>{{ post.date.seconds * 1000 | date:'dd \'d\'e MMMM, yyyy' }}</time>
+      <ul class="tags">
+        <li *ngFor="let tag of post.tags">
+          <a (click)="sortByTag(tag)">{{ tag }}</a>
+        </li>
+      </ul>
+      <span>{{ post.abstract }}</span>
+    </ng-container>
   </div>
 </main>
