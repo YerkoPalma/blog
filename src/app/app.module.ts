@@ -14,6 +14,8 @@ import localeCl from '@angular/common/locales/es-CL';
 import { PostComponent } from './post/post.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { CreateComponent } from './post/create.component';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 registerLocaleData(localeCl);
 
@@ -21,7 +23,8 @@ registerLocaleData(localeCl);
   declarations: [
     AppComponent,
     HomeComponent,
-    PostComponent
+    PostComponent,
+    CreateComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +32,7 @@ registerLocaleData(localeCl);
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireStorageModule,
     AngularFirestoreModule,
+    AngularFireAuthModule,
     MarkdownModule.forRoot({ loader: HttpClient }),
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })

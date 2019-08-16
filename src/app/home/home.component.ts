@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 export interface Post {
   title: string;
@@ -25,7 +26,9 @@ export class HomeComponent implements OnInit {
   posts: Observable<Post[]>;
   tags: string[] = [];
 
-  constructor(private db: AngularFirestore) {
+  constructor(
+    private db: AngularFirestore,
+    private router: Router) {
     this.posts = db.collection<Post>('posts').valueChanges();
   }
 
@@ -46,4 +49,7 @@ export class HomeComponent implements OnInit {
     this.tags = this.tags.filter(_tag => _tag !== tag);
   }
 
+  goToCreatePage() {
+    this.router.navigateByUrl('/add');
+  }
 }

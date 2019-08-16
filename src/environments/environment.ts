@@ -6,6 +6,7 @@ export const environment = {
   production: false,
   firebase: {
     apiKey: 'AIzaSyA6SJFoE2zFdqZOle7cXLXsrVivL-OktaY',
+    authDomain: 'blog-yp.firebaseapp.com',
     projectId: 'blog-yp',
     databaseURL: 'https://blog-yp.firebaseio.com',
     storgeBucket: 'gs://blog-yp.appspot.com'
