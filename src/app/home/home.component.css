@@ -72,6 +72,23 @@ ul.tags {
   cursor: pointer;
 }
 
+button {
+  position: fixed;
+  background-color: #ff725c;
+  border: 0;
+  right: 4rem;
+  bottom: 4rem;
+  border-radius: 999px;
+  padding: .7rem .8rem;
+  opacity: .8;
+  transition: all .5s;
+}
+
+button:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
 @media screen and (min-width: 30em) {
   main {
     padding-left: 16rem;
