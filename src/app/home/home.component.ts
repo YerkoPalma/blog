@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import { filter } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
 export interface Post {

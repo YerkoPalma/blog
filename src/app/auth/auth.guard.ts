@@ -17,6 +17,7 @@ export class AuthGuard implements CanActivate {
     return this.afAuth.user
       .pipe(map(user => {
         if (!user) { this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider()); }
+        console.log(user);
         return !!user;
       }));
   }

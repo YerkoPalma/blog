@@ -1,1 +1,24 @@
-<p>create works!</p>
+<div>
+  <a routerLink="/"> 
+    <svg class="small" version="1.1" preserveAspectRatio="xMidYMid meet" viewBox="0 0 127 324" width="45" height="40"><defs><path d="M121.3 320L6.7 161L121.3 2" id="b3EIhQ1lWg"></path></defs><g><g><use xlink:href="#b3EIhQ1lWg" opacity="1" fill="#000000" fill-opacity="0"></use><g><use xlink:href="#b3EIhQ1lWg" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="10" stroke-opacity="1"></use></g></g></g></svg>
+    <svg class="big" version="1.1" preserveAspectRatio="xMidYMid meet" viewBox="0 0 127 324" width="127" height="122"><defs><path d="M121.3 320L6.7 161L121.3 2" id="b3EIhQ1lWg"></path></defs><g><g><use xlink:href="#b3EIhQ1lWg" opacity="1" fill="#000000" fill-opacity="0"></use><g><use xlink:href="#b3EIhQ1lWg" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="10" stroke-opacity="1"></use></g></g></g></svg>
+  </a>
+</div>
+<main>
+  <form [formGroup]="newPostForm" (ngSubmit)="onSubmit()">
+    <ng-container *ngIf="!preview; else md">
+      <input class="block" name="title" placeholder="The title of the Post" type="text" formControlName="title" required>
+      <input class="block" name="abstract" placeholder="An optional abstract for the Post" type="hidden" formControlName="abstract">
+      <input class="block" name="tags" placeholder="Some tags for filtering the Post" type="hidden" formControlName="tags">
+      <input class="block" name="slug" type="hidden" placeholder="The slug for the Pst url" formControlName="slug">
+      <textarea class="block" name="content" rows="10" cols="30" required placeholder="The content of the Post" formControlName="content" required></textarea>
+    </ng-container>
+    <ng-template #md>
+      <markdown [data]="newPostForm.get('content').value"></markdown>
+    </ng-template>
+    <div class="button-group">
+      <button (click)="togglePreview()">Preview Post</button>
+      <button type="submit" [disabled]="!newPostForm.valid">Save draft</button>
+    </div>
+  </form>
+</main>

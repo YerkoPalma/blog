@@ -1,0 +1,179 @@
+:host {
+  display: block;
+  overflow-y: hidden;
+  height: calc(100% - 4rem);
+}
+
+:host main {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: #fff;
+  color: #111;
+  height: calc(100% - 2rem);
+  overflow-y: auto;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+:host div {
+  width: 90%;
+  vertical-align: middle;
+  position: absolute;
+}
+
+:host div > a {
+  vertical-align: middle;
+  display: table-cell;
+}
+
+:host div > a > .small {
+  margin-top: .75rem;
+  display: block;
+}
+
+:host div > a > .big {
+  display: none;
+}
+
+:host form {
+  position: relative;
+  height: 100%;
+  margin-top: 3.5rem;
+}
+
+:host input,
+:host textarea {
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Avenir,PingFang SC,Helvetica Neue,Helvetica;
+  padding: 0 .785714285714286rem;
+  display: inline-flex;
+  vertical-align: middle;
+  align-items: center;
+  border-radius: 5px;
+  background-color: transparent;
+  font-size: 1rem;
+  height: 2.642857142857143rem;
+  line-height: 1.928571428571429rem;
+  width: auto;
+  outline: 0;
+  box-sizing: border-box;
+  margin: 4px 10px;
+  border: 1px solid #e1e1e1;
+  -webkit-appearance: none;
+  transition: border .2s ease,color .2s ease;
+}
+
+:host textarea {
+  resize: none;
+  height: 55%;
+}
+
+:host .button-group {
+  display: flex;
+  width: 85%;
+  margin: 0 auto;
+  position: fixed;
+  bottom: 3rem;
+  height: unset;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+:host input:focus,
+:host textarea:focus {
+  border-color: #888;
+}
+
+:host input.block,
+:host textarea.block {
+  display: block;
+  width: 100%;
+  margin: .5rem auto;
+}
+
+:host button {
+  opacity: .8;
+  display: inline-block;
+  padding: 0 1.571428571428571rem;
+  border-radius: 5px;
+  font-size: .857142857142857rem;
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+  justify-content: center;
+  text-transform: uppercase;
+  text-align: center;
+  height: 2.714285714285714rem;
+  line-height: 2.714285714285714rem;
+  width: 100%;
+  min-width: 14.285714285714286rem;
+  white-space: nowrap;
+  transition: all .2s ease-out;
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #666;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+:host button[type="submit"] {
+  background: #ff725c;
+  border: 1px solid #ff725c;
+  color: #333;
+}
+
+:host button:hover {
+  opacity: 1;
+}
+
+:host button:disabled {
+  background: #fafafa!important;
+  border-color: #eaeaea!important;
+  color: #ccc!important;
+  cursor: not-allowed!important;
+}
+
+@media screen and (min-width: 30em) {
+  :host main {
+    padding-left: 16rem;
+    padding-right: 16rem;
+    font-size: 20px;
+  }
+
+  :host div {
+    height: 90%;
+    width: auto;
+    display: table;
+  }
+
+  :host div > a > .small {
+    display: none;
+  }
+
+  :host div > a > .big {
+    display: block;
+  }
+
+  :host form {
+    margin-top: 0;
+  }
+
+  :host .button-group {
+    width: 55%;
+  }
+
+  :host button {
+    width: auto;
+    margin-bottom: 0;
+  }
+
+  :host input.block,
+  :host textarea.block {
+    width: 80%;
+  }
+}
