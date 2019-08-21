@@ -7,17 +7,17 @@
 <main>
   <form [formGroup]="newPostForm" (ngSubmit)="onSubmit()">
     <ng-container *ngIf="!preview; else md">
-      <input class="block" name="title" placeholder="The title of the Post" type="text" formControlName="title" required>
+      <input class="block" (blur)="getSlug()" name="title" placeholder="The title of the Post" type="text" formControlName="title" required>
       <input class="block" name="abstract" placeholder="An optional abstract for the Post" type="hidden" formControlName="abstract">
       <input class="block" name="tags" placeholder="Some tags for filtering the Post" type="hidden" formControlName="tags">
       <input class="block" name="slug" type="hidden" placeholder="The slug for the Pst url" formControlName="slug">
-      <textarea class="block" name="content" rows="10" cols="30" required placeholder="The content of the Post" formControlName="content" required></textarea>
+      <textarea class="block" (blur)="getAbstract()" name="content" rows="10" cols="30" required placeholder="The content of the Post" formControlName="content" required></textarea>
     </ng-container>
     <ng-template #md>
       <markdown [data]="newPostForm.get('content').value"></markdown>
     </ng-template>
     <div class="button-group">
-      <button (click)="togglePreview()">Preview Post</button>
+      <button type="button" (click)="togglePreview()">Preview Post</button>
       <button type="submit" [disabled]="!newPostForm.valid">Save draft</button>
     </div>
   </form>
