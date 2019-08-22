@@ -12,10 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { environment } from 'src/environments/environment';
 import { registerLocaleData } from '@angular/common';
 import localeCl from '@angular/common/locales/es-CL';
-import { PostComponent } from './post/post.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { CreateComponent } from './post/create.component';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
 registerLocaleData(localeCl);
@@ -23,19 +20,14 @@ registerLocaleData(localeCl);
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    PostComponent,
-    CreateComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
-    ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireStorageModule,
     AngularFirestoreModule,
     AngularFireAuthModule,
-    MarkdownModule.forRoot({ loader: HttpClient }),
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],

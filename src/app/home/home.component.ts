@@ -49,6 +49,6 @@ export class HomeComponent implements OnInit {
   }
 
   goToCreatePage() {
-    this.router.navigateByUrl('/add');
+    this.router.navigateByUrl('/post');
   }
 }

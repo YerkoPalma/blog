@@ -7,13 +7,11 @@ import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   {
-    path: '', component: HomeComponent,
+    path: '', component: HomeComponent
   },
   {
-    path: 'add', component: CreateComponent, canActivate: [AuthGuard]
-  },
-  {
-    path: 'post/:slug', component: PostComponent,
+    path: 'post',
+    loadChildren: () => import('./post/post.module').then(mod => mod.PostModule)
   }
 ];
 
