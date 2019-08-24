@@ -1,1 +1,16 @@
-<p>list works!</p>
+<div>
+  <a routerLink="/"> 
+    <svg class="small" version="1.1" preserveAspectRatio="xMidYMid meet" viewBox="0 0 127 324" width="45" height="40"><defs><path d="M121.3 320L6.7 161L121.3 2" id="b3EIhQ1lWg"></path></defs><g><g><use xlink:href="#b3EIhQ1lWg" opacity="1" fill="#000000" fill-opacity="0"></use><g><use xlink:href="#b3EIhQ1lWg" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="10" stroke-opacity="1"></use></g></g></g></svg>
+    <svg class="big" version="1.1" preserveAspectRatio="xMidYMid meet" viewBox="0 0 127 324" width="127" height="122"><defs><path d="M121.3 320L6.7 161L121.3 2" id="b3EIhQ1lWg"></path></defs><g><g><use xlink:href="#b3EIhQ1lWg" opacity="1" fill="#000000" fill-opacity="0"></use><g><use xlink:href="#b3EIhQ1lWg" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="10" stroke-opacity="1"></use></g></g></g></svg>
+  </a>
+</div>
+<main>
+  <h1>Mis Posts</h1>
+  <div class="tabs">
+    <ul class="tabs-list">
+      <li [ngClass]="{'active': viewingDrafts}" (click)="viewDrafts()"><span>Drafts</span></li>
+      <li [ngClass]="{'active': viewingPublished}" (click)="viewPublished()"><span>Published</span></li>
+    </ul>
+    <div class="tab-content"></div>
+  </div>
+</main>

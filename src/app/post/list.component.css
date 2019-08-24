@@ -1,0 +1,92 @@
+:host {
+  display: block;
+  overflow-y: hidden;
+  height: calc(100% - 4rem);
+}
+
+:host main {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: #fff;
+  color: #111;
+  height: calc(100% - 2rem);
+  overflow-y: auto;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+:host div {
+  width: 90%;
+  vertical-align: middle;
+  position: absolute;
+}
+
+:host div > a {
+  vertical-align: middle;
+  display: table-cell;
+}
+
+:host div > a > .small {
+  margin-top: .75rem;
+  display: block;
+}
+
+:host div > a > .big {
+  display: none;
+}
+
+:host .tabs {
+  width: calc(100% - 34rem);
+  display: block;
+}
+
+:host .tabs-list {
+  padding-left: 0;
+  margin-top: 0;
+  padding-bottom: 8px;
+}
+
+:host .tabs-list li {
+  list-style: none;
+  display: inline-block;
+  border-bottom: 1px solid rgba(0, 0, 0, .5);
+  color: rgba(0, 0, 0, .5);
+  margin-right: 20px;
+  cursor: pointer;
+  font-weight: 100;
+}
+
+:host .tabs-list li:hover {
+  color: #111;
+}
+
+:host .tabs-list li.active {
+  border-bottom: 2px solid #ff725c;
+  color: #111;
+  font-weight: 600;
+}
+@media screen and (min-width: 30em) {
+  :host main {
+    padding-left: 16rem;
+    padding-right: 16rem;
+    font-size: 20px;
+  }
+
+  :host div {
+    height: 90%;
+    width: auto;
+    display: table;
+  }
+
+  :host div > a > .small {
+    display: none;
+  }
+
+  :host div > a > .big {
+    display: block;
+  }
+}

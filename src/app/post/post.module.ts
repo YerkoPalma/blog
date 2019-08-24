@@ -9,7 +9,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MarkdownModule } from 'ngx-markdown';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
-
 @NgModule({
   declarations: [ListComponent, CreateComponent, PostComponent],
   imports: [
