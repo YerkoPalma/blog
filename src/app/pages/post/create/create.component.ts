@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormControl } from '@angular/forms';
 import slugify from '@sindresorhus/slugify';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { Post } from '../home/home.component';
+import { Post } from '../../../models/post';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { Observable } from 'rxjs';
 
