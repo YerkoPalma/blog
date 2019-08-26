@@ -24,18 +24,19 @@ export class BlogService {
       this.draftsFirestore.collection$()
     ).pipe(
       tap(data => {
-        if (isPost(data)) {
-          postsLoaded = true;
-        } else {
-          draftsLoaded = true;
-        }
-        this.store.patch({
+        let newData = {
           loading: !postsLoaded && !draftsLoaded,
           postsLoaded,
-          draftsLoaded,
-          posts: isPost(data) ? data : [],
-          drafts: !isPost(data) ? data : []
-        }, 'AppState updated!');
+          draftsLoaded
+        };
+        if (isPost(data)) {
+          postsLoaded = true;
+          newData = Object.assign({}, newData, {posts: data});
+        } else {
+          draftsLoaded = true;
+          newData = Object.assign({}, newData, {drafts: data});
+        }
+        this.store.patch(newData, 'AppState updated!');
       })
     ).subscribe();
   }
@@ -56,10 +57,18 @@ export class BlogService {
     return this.store.state$.pipe(map(state => state.loading));
   }
 
+  get noDrafts$(): Observable<boolean> {
+    return this.store.state$.pipe(map(state => state.drafts.length === 0));
+  }
+
+  get noPosts$(): Observable<boolean> {
+    return this.store.state$.pipe(map(state => state.posts.length === 0));
+  }
+
   createDraft(draft: Draft) {}
 }
 
 function isPost(post: Post[] | Draft[]): post is Post[] {
-  if ((post as Post[])[0].tags) { return true; }
+  if (Array.isArray(post) && post.length > 0 && (post as Post[])[0].tags) { return true; }
   return false;
 }

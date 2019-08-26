@@ -10,13 +10,7 @@ import { Observable } from 'rxjs';
 export class FirestorageService {
 
   constructor(
-    private storage: AngularFireStorage,
-    private http: HttpClient) { }
-
-  readFile(filename: string): Observable<string | Blob> {
-    return this.getFileUrl(filename)
-      .pipe(switchMap(url => this.http.get(url, { responseType: 'blob' })));
-  }
+    private storage: AngularFireStorage) { }
 
   getFileUrl(filename: string): Observable<string> {
     return this.storage.ref(filename)

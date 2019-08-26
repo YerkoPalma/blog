@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { Post } from 'src/app/models/post';
+import { BlogService } from 'src/app/services/blog.service';
 
 @Component({
   selector: 'app-home',
@@ -10,13 +11,11 @@ import { Post } from 'src/app/models/post';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  posts: Observable<Post[]>;
   tags: string[] = [];
 
   constructor(
-    private db: AngularFirestore,
+    private blog: BlogService,
     private router: Router) {
-    this.posts = db.collection<Post>('posts').valueChanges();
   }
 
   ngOnInit() {
